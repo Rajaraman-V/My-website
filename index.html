@@ -4,23 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RAJARAMAN Personal Website</title>
-    
-    
-    
+
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
     <!-- CSS Styles -->
     <style>
-        /* Reset and basic styles */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
-        
-        /* Marvel-Inspired Body Background */
+
         body {
             font-family: 'Palatino', sans-serif;
             color: #333;
-            background-image: url('https://images.pexels.com/photos/956999/milky-way-starry-sky-night-sky-star-956999.jpeg?cs=srgb&dl=pexels-felixmittermeier-956999.jpg&fm=jpg'); /* Replace with your background image path */
+            background-image: url('https://images.pexels.com/photos/956999/milky-way-starry-sky-night-sky-star-956999.jpeg?cs=srgb&dl=pexels-felixmittermeier-956999.jpg&fm=jpg');
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-position: center;
@@ -33,9 +32,8 @@
             margin: 0;
         }
 
-        /* Header Section with Overlay and Marvel Font */
         header {
-            background-image: url('https://t4.ftcdn.net/jpg/07/12/98/83/360_F_712988366_J9gFmju7QHseR53Fzalo3ElFElkhiDkZ.jpg'); /* Replace with your header background image path */
+            background-image: url('https://t4.ftcdn.net/jpg/07/12/98/83/360_F_712988366_J9gFmju7QHseR53Fzalo3ElFElkhiDkZ.jpg');
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
@@ -55,7 +53,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Adds a dark overlay */
+            background: rgba(0, 0, 0, 0.5);
         }
 
         header h1 {
@@ -82,19 +80,18 @@
             z-index: 2;
         }
 
-        /* Section styling with Marvel Theme */
         section {
             padding: 40px 20px;
             max-width: 900px;
             margin: 20px auto;
-            background: rgba(0, 0, 0, 0.8); /* Dark semi-transparent background */
+            background: rgba(0, 0, 0, 0.8);
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
         }
 
         section h2 {
             font-family: 'Poppins', cursive;
-            color: #e23636; /* Marvel Red */
+            color: #e23636;
             font-size: 2rem;
             margin-bottom: 15px;
             padding-bottom: 10px;
@@ -122,7 +119,6 @@
             margin: 5px 0;
         }
 
-        /* Footer styling */
         footer {
             text-align: center;
             padding: 20px;
@@ -137,7 +133,7 @@
             color: #e23636;
             text-decoration: none;
         }
-        
+
         footer a:hover {
             text-decoration: underline;
         }
@@ -146,14 +142,14 @@
 <body>
 
     <!-- Header with Profile Picture -->
-    <header>
+    <header data-aos="fade-down">
         <img src="pic.jpeg" alt="Profile Picture">
         <h1>RAJARAMAN</h1>
-        <p>Welcome to my  personal website</p>
+        <p>Welcome to my personal website</p>
     </header>
 
     <!-- About Section -->
-    <section id="about">
+    <section id="about" data-aos="fade-up">
         <h2>About Me</h2>
         <div class="section-content">
             <p>Hello! I’m RAJARAMAN, Engineer. Here you'll find information about my experience, skills, and achievements.</p>
@@ -161,12 +157,12 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience">
+    <section id="experience" data-aos="fade-right">
         <h2>Education</h2>
         <div class="section-content">
             <div class="experience-item">
                 <p><strong>Vyasa Vidyalaya</strong></p>
-                <p>Duration: [June 2009  - April 2023]</p>
+                <p>Duration: [June 2009 - April 2023]</p>
                 <p>Description of your responsibilities and accomplishments.</p>
             </div>
             <div class="experience-item">
@@ -178,35 +174,109 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills">
+    <section id="skills" data-aos="fade-left">
         <h2>Skills</h2>
         <div class="section-content">
             <ul>
                 <li>Communication skills</li>
-                <li>leadership skills</li>
-                <li>Negotitation Skills</li>
+                <li>Leadership skills</li>
+                <li>Negotiation Skills</li>
                 <li>Technical skills</li>
-                <li> Analytical skills</li>                  
+                <li>Analytical skills</li>
             </ul>
         </div>
     </section>
 
     <!-- Certificates Section -->
-    <section id="certificates">
-        <h2>Certificates</h2>
-        <div class="section-content">
-            <ul>
-                <li>Certificate 1 - Issued by [Institution]</li>
-                <li>Certificate 2 - Issued by [Institution]</li>
-                <li>Certificate 3 - Issued by [Institution]</li>
-            </ul>
-        </div>
-    </section>
+<section id="certificates" data-aos="zoom-in">
+    <h2>Certificates</h2>
+    <div class="section-content">
+        <ul>
+            <li>
+                Intership On Intro to Cyber Security - Issued by ArjunVision
+                <br>
+                <div class="button-container">
+                <!-- Download Button for Certificate 1 -->
+                <button onclick="downloadCertificate('intership.jpeg')">Click here to downloadCertificate</button>
+            </li>
+            <li>
+                Software Engineering Job Simulation - Issued by JP Morgan Chase & Co
+                <br>
+                <div class="button-container">
+                <!-- Download Button for Certificate 2 -->
+                <button onclick="downloadCertificate('jp morgan.jpeg')">Click here to downloadCertificate</button>
+            </li>
+            <li>
+                Introduction To Open Source - Issued by IBM
+                <br>
+                <div class="button-container">
+                <!-- Download Button for Certificate 3 -->
+                <button onclick="downloadCertificate('IBM.jpeg')">Click here to downloadCertificate</button>
+            </li>
+            <li>
+                Web App Development - Issued by Saveetha Engineering College
+                <br>
+                <div class="button-container">
+                <!-- Download Button for Certificate 3 -->
+                <button onclick="downloadCertificate('Flask Bootcamp.jpeg')">Click here to downloadCertificate</button>
+            </li>
+            <li>
+                Data Analytics - Issued by linkedin learning
+                <br>
+                <div class="button-container">
+                <!-- Download Button for Certificate 3 -->
+                <button onclick="downloadCertificate('data analytics.jpeg')">Click here to downloadCertificate</button>
+            </li>
+        </ul>
+    </div>
+</section>
+<!-- CSS for Button Alignment -->
+<style>
+    /* Right-align the download button */
+    .button-container {
+        text-align: right;
+        margin-top: 5px;
+    }
+    .button-container button {
+        padding: 8px 12px;
+        background-color: #e23636;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .button-container button:hover {
+        background-color: #c71c1c;
+    }
+</style>
+
+<!-- JavaScript for Download Function -->
+<script>
+    function downloadCertificate(fileName) {
+        const a = document.createElement('a');
+        a.href = fileName; // Path to the certificate file
+        a.download = fileName.split('/').pop(); // Sets the filename
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }
+</script>
+
 
     <!-- Footer -->
-    <footer>
-        <p>Contact me at: <a href="mailto:your.email@example.com">rajaramanvenktesh777@gmail.com</a></p>
+    <footer data-aos="fade-up">
+        <p>Contact me at: <a href="mailto:rajaramanvenktesh777@gmail.com">rajaramanvenktesh777@gmail.com</a></p>
+
     </footer>
-    
+
+    <!-- AOS JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: true
+        });
+    </script>
 </body>
 </html>
