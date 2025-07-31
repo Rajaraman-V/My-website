@@ -1,282 +1,388 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RAJARAMAN Personal Website</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RAJARAMAN Personal Website</title>
 
-    <!-- AOS CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <!-- AOS CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
 
-    <!-- CSS Styles -->
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  <!-- CSS Styles -->
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        body {
-            font-family: 'Palatino', sans-serif;
-            color: #333;
-            background-image: url('https://images.pexels.com/photos/956999/milky-way-starry-sky-night-sky-star-956999.jpeg?cs=srgb&dl=pexels-felixmittermeier-956999.jpg&fm=jpg');
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-position: center;
-            background-size: cover;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 0;
-            margin: 0;
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        header {
-            background-image: url('https://t4.ftcdn.net/jpg/07/12/98/83/360_F_712988366_J9gFmju7QHseR53Fzalo3ElFElkhiDkZ.jpg');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-            color: #fff;
-            padding: 60px 20px;
-            text-align: center;
-            position: relative;
-            width: 100%;
-            max-width: 1200px;
-            overflow: hidden;
-        }
+    body {
+      font-family: 'Palatino', sans-serif;
+      color: #333;
+      background-image: url('https://images.pexels.com/photos/956999/milky-way-starry-sky-night-sky-star-956999.jpeg?cs=srgb&dl=pexels-felixmittermeier-956999.jpg&fm=jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      margin: 0;
+    }
+    
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      padding: 25px 25px;
+      text-align: right;
+      z-index: 1000;
+    }
 
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-        }
+    nav a {
+      margin-left: 20px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-        header h1 {
-            font-family: 'Palatino', cursive;
-            font-size: 3rem;
-            margin-bottom: 10px;
-            position: relative;
-            z-index: 2;
-        }
+    nav a:hover {
+      color: #e23636;
+    }
 
-        header p {
-            font-size: 1.2rem;
-            position: relative;
-            z-index: 2;
-        }
+    .sidebar-circle {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
 
-        header img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 4px solid #fff;
-            margin-top: 20px;
-            position: relative;
-            z-index: 2;
-        }
+    .sidebar-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-        section {
-            padding: 40px 20px;
-            max-width: 900px;
-            margin: 20px auto;
-            background: rgba(0, 0, 0, 0.8);
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-        }
+    .sidebar-circle:hover {
+      transform: scale(1.1);
+    }
 
-        section h2 {
-            font-family: 'Poppins', cursive;
-            color: #e23636;
-            font-size: 2rem;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #e23636;
-        }
+    header {
+      margin-top: 60px;
+      background-image: url('https://t4.ftcdn.net/jpg/07/12/98/83/360_F_712988366_J9gFmju7QHseR53Fzalo3ElFElkhiDkZ.jpg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      color: #fff;
+      padding: 60px 20px;
+      text-align: center;
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      overflow: hidden;
+    }
 
-        .section-content {
-            margin-top: 15px;
-            font-size: 1rem;
-            color: #ddd;
-        }
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 150%;
+      background: rgba(0, 0, 0, 0.5);
+    }
 
-        .section-content ul {
-            list-style-type: disc;
-            margin-left: 20px;
-            font-size: 1rem;
-        }
+    header h1 {
+      font-family: 'Palatino', cursive;
+      font-size: 3rem;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 2;
+    }
 
-        .experience-item, .certificate-item {
-            margin-bottom: 15px;
-            padding-left: 10px;
-        }
+    header p {
+      font-size: 1.2rem;
+      position: relative;
+      z-index: 2;
+    }
 
-        .experience-item p, .certificate-item p {
-            margin: 5px 0;
-        }
+    header img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      margin-top: 20px;
+      position: relative;
+      z-index: 2;
+    }
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            font-size: 0.9rem;
-            color: #ddd;
-            background-color: #222;
-            width: 100%;
-            margin-top: 20px;
-        }
+    section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: 20px auto;
+      background: rgba(0, 0, 0, 0.8);
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
 
-        footer a {
-            color: #e23636;
-            text-decoration: none;
-        }
+    section h2 {
+      font-family: 'Poppins', cursive;
+      color: #e23636;
+      font-size: 2rem;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #e23636;
+    }
 
-        footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    .section-content {
+      margin-top: 15px;
+      font-size: 1rem;
+      color: #ddd;
+    }
+
+    .section-content ul {
+      list-style-type: disc;
+      margin-left: 20px;
+      font-size: 1rem;
+    }
+
+    .experience-item, .certificate-item {
+      margin-bottom: 15px;
+      padding-left: 10px;
+    }
+
+    .experience-item p, .certificate-item p {
+      margin: 5px 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #ddd;
+      background-color: #222;
+      width: 100%;
+      margin-top: 44px;
+    }
+
+    footer a {
+      color: #e23636;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .button-container {
+      text-align: right;
+      margin-top: 5px;
+    }
+
+    .button-container button {
+      padding: 8px 12px;
+      background-color: #e23636;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .button-container button:hover {
+      background-color: #c71c1c;
+    }
+    .social-icon {
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+  object-fit: contain;
+}
+
+  </style>
 </head>
 <body>
 
-    <!-- Header with Profile Picture -->
-    <header data-aos="fade-down">
-        <img src="pic.jpeg" alt="Profile Picture">
-        <h1>RAJARAMAN</h1>
-        <p>Welcome to my personal website</p>
-    </header>
+  <!-- Navigation Bar -->
+  <nav>
+    <!-- Circle Icon that scrolls to header -->
+    <a href="#hero" class="sidebar-circle">
+      <img src="PROF.jpg" alt="Go to Home" />
+    </a>
 
-    <!-- About Section -->
-    <section id="about" data-aos="fade-up">
-        <h2>About Me</h2>
-        <div class="section-content">
-            <p>Hello! I’m RAJARAMAN, Engineer. Here you'll find information about my experience, skills, and achievements.</p>
-        </div>
-    </section>
+    <a href="#about">About</a>
+    <a href="#experience">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#certificates">Certificates</a>
+  </nav>
 
-    <!-- Experience Section -->
-    <section id="experience" data-aos="fade-right">
-        <h2>Education</h2>
-        <div class="section-content">
-            <div class="experience-item">
-                <p><strong>Vyasa Vidyalaya</strong></p>
-                <p>Duration: [June 2009 - April 2023]</p>
-                <p>Description of your responsibilities and accomplishments.</p>
-            </div>
-            <div class="experience-item">
-                <p><strong>Saveetha Engineering College</strong></p>
-                <p>Duration: September 2023 - present</p>
-                <p>Description of your responsibilities and accomplishments.</p>
-            </div>
-        </div>
-    </section>
+  <!-- Header -->
+   <br>
 
-    <!-- Skills Section -->
-    <section id="skills" data-aos="fade-left">
-        <h2>Skills</h2>
-        <div class="section-content">
-            <ul>
-                <li>Communication skills</li>
-                <li>Leadership skills</li>
-                <li>Negotiation Skills</li>
-                <li>Technical skills</li>
-                <li>Analytical skills</li>
+</BR>
+  <header id="hero" data-aos="fade-down">
+    <img src="pic.jpeg" alt="Profile Picture">
+    <h1>RAJARAMAN</h1>
+    <p>Welcome to my personal website</p>
+  </header>
+
+  <!-- About Section -->
+  <section id="about" data-aos="fade-up">
+    <h2>About Me</h2>
+    <div class="section-content">
+      <p>Hello! I’m RAJARAMAN, Engineer. Here you'll find information about my experience, skills, and achievements.</p>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="experience" data-aos="fade-right">
+    <h2>Education</h2>
+    <div class="section-content">
+      <div style="position: relative; margin-left: 30px; border-left: 2px solid #999; padding-left: 30px;">
+
+        <!-- School -->
+        <div style="position: relative; margin-bottom: 60px;">
+          <div style="position: absolute; left: -55px; top: 0; width: 50px; height: 50px; border-radius: 50%; border: 3px solid #999; overflow: hidden; background: #fff; display: flex; align-items: center; justify-content: center;">
+            <img src="scl.png" alt="Icon" style="width: 90%; height: 90%; object-fit: contain;">
+          </div>
+          <p style="color: #ccc; font-size: 0.9rem;">Vyasa Vidyalaya</p>
+          <p style="color: #ccc; font-size: 0.9rem;">JUNE 2009 - APRIL 2023</p><br>
+          <div style="background: #1e1e3f; padding: 12px; border-radius: 8px; color: #fff; max-width: 400px; box-shadow: 0 2px 8px rgba(0,0,0,0.4); font-size: 0.9rem;">
+            <p style="color: #bbb;">CS STUDENT</p>
+            <ul style="margin-top: 10px; padding-left: 20px; color: #ccc;">
+              <li>Secured 80.8% in 12th Board Exam.</li>
+              <li>Secured 70% in 11th Board Exam.</li>
+              <li>Ensured responsiveness and code quality.</li>
             </ul>
+          </div>
         </div>
-    </section>
 
-    <!-- Certificates Section -->
-<section id="certificates" data-aos="zoom-in">
+        <!-- College -->
+        <div style="position: relative; margin-bottom: 60px;">
+          <div style="position: absolute; left: -55px; top: 0; width: 50px; height: 50px; border-radius: 50%; border: 3px solid #999; overflow: hidden; background: #fff; display: flex; align-items: center; justify-content: center;">
+            <img src="SEC-.png" alt="Icon" style="width: 90%; height: 90%; object-fit: contain;">
+          </div>
+          <p style="color: #ccc; font-size: 0.9rem;">Saveetha Engineering College</p>
+          <p style="color: #ccc; font-size: 0.9rem;">SEPTEMBER 2023 - JUNE 2027</p><br>
+          <div style="background: #1e1e3f; padding: 12px; border-radius: 8px; color: #fff; max-width: 400px; box-shadow: 0 2px 8px rgba(0,0,0,0.4); font-size: 0.9rem;">
+            <p style="color: #bbb;">B.E - COMPUTER SCIENCE AND ENGINEERING (IOT)</p>
+            <ul style="margin-top: 10px; padding-left: 20px; color: #ccc;">
+              <li>Created mobile apps using React Native.</li>
+              <li>Integrated APIs and worked with teams.</li>
+              <li>Maintained performance and UX quality.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" data-aos="fade-left">
+    <h2>Skills</h2>
+    <div class="section-content">
+      <ul>
+        <li>Communication skills</li>
+        <li>Leadership skills</li>
+        <li>Negotiation Skills</li>
+        <li>Technical skills</li>
+        <li>Analytical skills</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Certificates Section -->
+  <section id="certificates" data-aos="zoom-in">
     <h2>Certificates</h2>
     <div class="section-content">
-        <ul>
-            <li>
-                Internship On Introduction to Cyber Security - Issued by ArjunVision
-                <br>
-                <div class="button-container">
-                <!-- Download Button for Certificate 1 -->
-                <button onclick="downloadCertificate('intership.jpeg')">Click here to downloadCertificate</button>
-            </li>
-            <li>
-                Software Engineering Job Simulation - Issued by JP Morgan Chase & Co
-                <br>
-                <div class="button-container">
-                <!-- Download Button for Certificate 2 -->
-                <button onclick="downloadCertificate('jp morgan.jpeg')">Click here to downloadCertificate</button>
-            </li>
-            <li>
-                Introduction To Open Source - Issued by IBM
-                <br>
-                <div class="button-container">
-                <!-- Download Button for Certificate 3 -->
-                <button onclick="downloadCertificate('IBM.jpeg')">Click here to downloadCertificate</button>
-            </li>
-            <li>
-                Web App Development - Issued by Saveetha Engineering College
-                <br>
-                <div class="button-container">
-                <!-- Download Button for Certificate 3 -->
-                <button onclick="downloadCertificate('Flask Bootcamp.jpeg')">Click here to downloadCertificate</button>
-            </li>
-            <li>
-                Data Analytics - Issued by linkedin learning
-                <br>
-                <div class="button-container">
-                <!-- Download Button for Certificate 3 -->
-                <button onclick="downloadCertificate('data analytics.jpeg')">Click here to downloadCertificate</button>
-            </li>
-        </ul>
+      <ul>
+        <li>Internship On Introduction to Cyber Security - Issued by ArjunVision<br>
+          <div class="button-container">
+            <button onclick="downloadCertificate('intership.jpeg')">Click here to download Certificate</button>
+          </div>
+        </li>
+        <li>Software Engineering Job Simulation - Issued by JP Morgan Chase & Co<br>
+          <div class="button-container">
+            <button onclick="downloadCertificate('jp morgan.jpeg')">Click here to download Certificate</button>
+          </div>
+        </li>
+        <li>Introduction To Open Source - Issued by IBM<br>
+          <div class="button-container">
+            <button onclick="downloadCertificate('IBM.jpeg')">Click here to download Certificate</button>
+          </div>
+        </li>
+        <li>Web App Development - Issued by Saveetha Engineering College<br>
+          <div class="button-container">
+            <button onclick="downloadCertificate('Flask Bootcamp.jpeg')">Click here to download Certificate</button>
+          </div>
+        </li>
+        <li>Data Analytics - Issued by LinkedIn Learning<br>
+          <div class="button-container">
+            <button onclick="downloadCertificate('data analytics.jpeg')">Click here to download Certificate</button>
+          </div>
+        </li>
+      </ul>
     </div>
-</section>
-<!-- CSS for Button Alignment -->
-<style>
-    /* Right-align the download button */
-    .button-container {
-        text-align: right;
-        margin-top: 5px;
-    }
-    .button-container button {
-        padding: 8px 12px;
-        background-color: #e23636;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-    .button-container button:hover {
-        background-color: #c71c1c;
-    }
-</style>
+  </section>
 
-<!-- JavaScript for Download Function -->
-<script>
+  <!-- Footer -->
+  <footer data-aos="fade-up">
+    <p>Contact me at: <a href="mailto:rajaramanvenktesh777@gmail.com">rajaramanvenktesh777@gmail.com</a></p>
+    <div id="contact">
+  <h2>Contact</h2>
+  <p>Connect with me:</p>
+  <div class="social-icons">
+    <a href="https://x.com/_RajaRaman_?t=pLPtIWcaVwx4MzjoJdpuNg&s=08 " target="_blank">
+  <img src="twit.png" alt="Twitter" class="social-icon" />
+</a>
+<a href="https://github.com/Rajaraman-V" target="_blank">
+  <img src="git.png" alt="GitHub" class="social-icon" />
+</a>
+<a href="https://www.instagram.com/_.r_a_j_a_r_a_m_a_n._?igsh=N2psdnQ0ZXYxMmZu" target="_blank">
+  <img src="ins.jpg" alt="Instagram" class="social-icon" />
+</a>
+<a href="https://www.linkedin.com/in/raja-raman-a6870b2b2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
+  <img src="link.png" alt="LinkedIn" class="social-icon" />
+</a>
+
+  </div>
+</div>
+
+  </footer>
+
+  <!-- AOS JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: true
+    });
+
     function downloadCertificate(fileName) {
-        const a = document.createElement('a');
-        a.href = fileName; // Path to the certificate file
-        a.download = fileName.split('/').pop(); // Sets the filename
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
+      const a = document.createElement('a');
+      a.href = fileName;
+      a.download = fileName.split('/').pop();
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
     }
-</script>
-
-
-    <!-- Footer -->
-    <footer data-aos="fade-up">
-        <p>Contact me at: <a href="mailto:rajaramanvenktesh777@gmail.com">rajaramanvenktesh777@gmail.com</a></p>
-
-    </footer>
-
-    <!-- AOS JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 1000,
-            easing: 'ease-in-out',
-            once: true
-        });
-    </script>
+  </script>
 </body>
 </html>
