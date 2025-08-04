@@ -4,11 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RAJARAMAN Personal Website</title>
-
-  <!-- AOS CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
-
-  <!-- CSS Styles -->
   <style>
     * {
       box-sizing: border-box;
@@ -16,61 +12,49 @@
       padding: 0;
     }
 
-    html {
+    html, body {
       scroll-behavior: smooth;
+      overflow: hidden;
+      font-family: 'Palatino', sans-serif;
+      background-image: url('https://images.pexels.com/photos/956999/milky-way-starry-sky-night-sky-star-956999.jpeg');
+      background-size: cover;
+      background-attachment: fixed;
+      color: #fff;
     }
 
-    body {
-      font-family: 'Palatino', sans-serif;
-      color: #333;
-      background-image: url('https://images.pexels.com/photos/956999/milky-way-starry-sky-night-sky-star-956999.jpeg?cs=srgb&dl=pexels-felixmittermeier-956999.jpg&fm=jpg');
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-position: center;
-      background-size: cover;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 0;
-      margin: 0;
-    }
-    
+    html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
     nav {
       position: fixed;
       top: 0;
       width: 100%;
       background-color: rgba(0, 0, 0, 0.9);
-      padding: 25px 25px;
-      text-align: right;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       z-index: 1000;
     }
 
-    nav a {
-      margin-left: 20px;
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      color: #e23636;
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
     .sidebar-circle {
-      position: absolute;
-      left: 10px;
-      top: 10px;
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      border: 2px solid #fff;
       overflow: hidden;
-      background: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.3s ease;
+      border: 2px solid white;
+      background: white;
+      cursor: pointer;
     }
 
     .sidebar-circle img {
@@ -79,222 +63,400 @@
       object-fit: cover;
     }
 
-    .sidebar-circle:hover {
-      transform: scale(1.1);
+    #robot-btn {
+      padding: 6px 12px;
+      background-color: #e23636;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 14px;
     }
 
-    header {
-      margin-top: 60px;
-      background-image: url('https://t4.ftcdn.net/jpg/07/12/98/83/360_F_712988366_J9gFmju7QHseR53Fzalo3ElFElkhiDkZ.jpg');
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
+    .nav-right a {
+      margin-left: 20px;
       color: #fff;
-      padding: 60px 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .nav-right a:hover {
+      color: #e23636;
+    }
+
+    #hero-container, #robot-view {
+      display: none;
       text-align: center;
-      position: relative;
+    }
+
+    iframe {
+      border: none;
       width: 100%;
-      max-width: 1200px;
-      overflow: hidden;
-    }
-
-    header::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 150%;
-      background: rgba(0, 0, 0, 0.5);
-    }
-
-    header h1 {
-      font-family: 'Palatino', cursive;
-      font-size: 3rem;
-      margin-bottom: 10px;
-      position: relative;
-      z-index: 2;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      position: relative;
-      z-index: 2;
+      height: 500px;
     }
 
     header img {
       width: 150px;
       height: 150px;
       border-radius: 50%;
-      border: 4px solid #fff;
-      margin-top: 20px;
-      position: relative;
-      z-index: 2;
+      border: 4px solid white;
+      cursor: pointer;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin: 10px 0;
+      color: white;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #ccc;
     }
 
     section {
+      display: none;
       padding: 40px 20px;
       max-width: 900px;
-      margin: 20px auto;
+      margin: 80px auto;
       background: rgba(0, 0, 0, 0.8);
       border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+
+    .section-content-wrapper {
+      max-width: 600px;
+  padding: 20px;
+  text-align: center;
+    }
+
+    section.active {
+      display: block;
     }
 
     section h2 {
-      font-family: 'Poppins', cursive;
       color: #e23636;
-      font-size: 2rem;
-      margin-bottom: 15px;
-      padding-bottom: 10px;
       border-bottom: 2px solid #e23636;
+      margin-bottom: 20px;
     }
 
     .section-content {
-      margin-top: 15px;
       font-size: 1rem;
       color: #ddd;
     }
 
     .section-content ul {
-      list-style-type: disc;
       margin-left: 20px;
-      font-size: 1rem;
     }
 
-    .experience-item, .certificate-item {
-      margin-bottom: 15px;
-      padding-left: 10px;
-    }
+   section.centered-section.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+}
 
-    .experience-item p, .certificate-item p {
-      margin: 5px 0;
-    }
 
-    footer {
+    #hero-header {
+      display: none;
+      background-image: url('https://t4.ftcdn.net/jpg/07/12/98/83/360_F_712988366_J9gFmju7QHseR53Fzalo3ElFElkhiDkZ.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 50px 20px;
+      border-radius: 12px;
       text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+    }
+
+    #hero-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
       padding: 20px;
-      font-size: 0.9rem;
-      color: #ddd;
-      background-color: #222;
-      width: 100%;
-      margin-top: 44px;
+      text-align: center;
     }
 
-    footer a {
-      color: #e23636;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    .button-container {
-      text-align: right;
-      margin-top: 5px;
-    }
-
-    .button-container button {
-      padding: 8px 12px;
-      background-color: #e23636;
-      color: white;
-      border: none;
-      border-radius: 4px;
+    #hero-header img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid white;
       cursor: pointer;
     }
 
-    .button-container button:hover {
-      background-color: #c71c1c;
+    #hero-header h1 {
+      font-size: 2.5rem;
+      margin: 10px 0;
+      color: white;
     }
+
+    #hero-header p {
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+
+    #robot-wrapper {
+      display: none;
+      width: 100%;
+      max-width: 800px;
+      height: 759px;
+    }
+
+    /* Timeline Style */
+    .timeline {
+      position: relative;
+      margin-left: 40px;
+      padding-left: 40px;
+      border-left: 3px solid #e23636;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 50px;
+    }
+
+    .timeline-icon {
+      position: absolute;
+      left: -70px;
+      top: 0;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: white;
+      border: 3px solid #e23636;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .timeline-icon img {
+      width: 80%;
+      height: 80%;
+      object-fit: contain;
+    }
+
+    .timeline-content {
+      background: #1e1e3f;
+      padding: 15px 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      color: #fff;
+      font-size: 0.95rem;
+    }
+
+    .timeline-content h3 {
+      color: #e23636;
+      margin-bottom: 5px;
+    }
+
+    .timeline-content span {
+      display: block;
+      font-size: 0.85rem;
+      color: #bbb;
+      margin-bottom: 10px;
+    }
+
+    .timeline-content ul {
+      padding-left: 20px;
+      color: #ccc;
+      list-style-type: disc;
+    }
+
+    .social-icons {
+      margin-top: 10px;
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
     .social-icon {
-  width: 30px;
-  height: 30px;
-  margin: 10px;
-  object-fit: contain;
+      width: 40px;
+      height: 40px;
+      transition: transform 0.3s ease;
+    }
+
+    .social-icon:hover {
+      transform: scale(1.2);
+    }
+
+    button {
+      background-color: #e23636;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #c22222;
+    }
+    
+    .centered-section .section-content-wrapper {
+  padding: 20px 15px;
 }
+
+.centered-section {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  margin: auto;
+  width: 70%;
+  max-width: 800px;
+}
+
+.content-box {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  width: 80%;
+  max-width: 800px;
+  height: auto;
+}
+
+.typewriter-text {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #ff6666;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px 15px;
+  border-radius: 10px;
+  white-space: normal;
+  overflow-wrap: break-word;
+  width: 80%;
+  margin: 20px auto 0;
+  text-align: center;
+  border-right: 2px solid #ff6666;
+  display: inline-block;
+  animation: blink 0.75s step-end infinite;
+  min-height: 50px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+}
+
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+
 
   </style>
 </head>
 <body>
 
-  <!-- Navigation Bar -->
   <nav>
-    <!-- Circle Icon that scrolls to header -->
-    <a href="#hero" class="sidebar-circle">
-      <img src="PROF.jpg" alt="Go to Home" />
-    </a>
-
-    <a href="#about">About</a>
-    <a href="#experience">Education</a>
-    <a href="#skills">Skills</a>
-    <a href="#certificates">Certificates</a>
+    <div class="nav-left">
+      <div class="sidebar-circle" onclick="showHero()">
+        <img src="PROF.jpg" alt="Home" />
+      </div>
+      <button id="robot-btn">🤖 HOME</button>
+    </div>
+    <div class="nav-right">
+      <a href="javascript:void(0)" onclick="showSection('about')">About</a>
+      <a href="javascript:void(0)" onclick="showSection('experience')">Education</a>
+      <a href="javascript:void(0)" onclick="showSection('skills')">Skills</a>
+      <a href="javascript:void(0)" onclick="showSection('certificates')">Certificates</a>
+      <a href="javascript:void(0)" onclick="showSection('contact')">Contact</a>
+    </div>
   </nav>
 
-  <!-- Header -->
-   <br>
+  <div id="hero-container">
+    <div id="hero-header">
+      <img src="pic.jpeg" alt="Profile Picture" onclick="showHero()" />
+      <h1>RAJARAMAN</h1>
+      <p>Welcome to my personal website! Here you'll find information about my experience, skills, and achievements.</p>
+    </div>
+   
 
-</BR>
-  <header id="hero" data-aos="fade-down">
-    <img src="pic.jpeg" alt="Profile Picture">
-    <h1>RAJARAMAN</h1>
-    <p>Welcome to my personal website</p>
-  </header>
+    <div id="robot-wrapper">
+  <iframe src="https://my.spline.design/genkubgreetingrobot-4nHCBBruYeMZfhVMoFzB6S4q/" allowfullscreen></iframe>
+<h1 class="typewriter-text" id="typewriter"></h1>
+</div>
 
-  <!-- About Section -->
-  <section id="about" data-aos="fade-up">
-    <h2>About Me</h2>
-    <div class="section-content">
-      <p>Hello! I’m RAJARAMAN, Engineer. Here you'll find information about my experience, skills, and achievements.</p>
+  </div>
+
+  <section id="about" class="centered-section">
+    <div class="section-content-wrapper">
+      <h2>About Me</h2>
+      <p>Hi, I’m Rajaraman – a Web Developer and aspiring engineer with a passion for innovation and problem-solving.  
+      Currently shaping the future at Saveetha Engineering College.</p>
     </div>
   </section>
 
-  <!-- Education Section -->
-  <section id="experience" data-aos="fade-right">
-    <h2>Education</h2>
-    <div class="section-content">
-      <div style="position: relative; margin-left: 30px; border-left: 2px solid #999; padding-left: 30px;">
+  <section id="experience">
+  <h2>Education</h2>
+  <div class="timeline">
 
-        <!-- School -->
-        <div style="position: relative; margin-bottom: 60px;">
-          <div style="position: absolute; left: -55px; top: 0; width: 50px; height: 50px; border-radius: 50%; border: 3px solid #999; overflow: hidden; background: #fff; display: flex; align-items: center; justify-content: center;">
-            <img src="scl.png" alt="Icon" style="width: 90%; height: 90%; object-fit: contain;">
-          </div>
-          <p style="color: #ccc; font-size: 0.9rem;">Vyasa Vidyalaya</p>
-          <p style="color: #ccc; font-size: 0.9rem;">JUNE 2009 - APRIL 2023</p><br>
-          <div style="background: #1e1e3f; padding: 12px; border-radius: 8px; color: #fff; max-width: 400px; box-shadow: 0 2px 8px rgba(0,0,0,0.4); font-size: 0.9rem;">
-            <p style="color: #bbb;">CS STUDENT</p>
-            <ul style="margin-top: 10px; padding-left: 20px; color: #ccc;">
-              <li>Secured 80.8% in 12th Board Exam.</li>
-              <li>Secured 70% in 11th Board Exam.</li>
-              <li>Ensured responsiveness and code quality.</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- College -->
-        <div style="position: relative; margin-bottom: 60px;">
-          <div style="position: absolute; left: -55px; top: 0; width: 50px; height: 50px; border-radius: 50%; border: 3px solid #999; overflow: hidden; background: #fff; display: flex; align-items: center; justify-content: center;">
-            <img src="SEC-.png" alt="Icon" style="width: 90%; height: 90%; object-fit: contain;">
-          </div>
-          <p style="color: #ccc; font-size: 0.9rem;">Saveetha Engineering College</p>
-          <p style="color: #ccc; font-size: 0.9rem;">SEPTEMBER 2023 - JUNE 2027</p><br>
-          <div style="background: #1e1e3f; padding: 12px; border-radius: 8px; color: #fff; max-width: 400px; box-shadow: 0 2px 8px rgba(0,0,0,0.4); font-size: 0.9rem;">
-            <p style="color: #bbb;">B.E - COMPUTER SCIENCE AND ENGINEERING (IOT)</p>
-            <ul style="margin-top: 10px; padding-left: 20px; color: #ccc;">
-              <li>Created mobile apps using React Native.</li>
-              <li>Integrated APIs and worked with teams.</li>
-              <li>Maintained performance and UX quality.</li>
-            </ul>
-          </div>
-        </div>
-
+    <!-- Entry 1 -->
+    <div class="timeline-item">
+      <div class="timeline-icon">
+        <img src="scl.png" alt="School Icon">
+      </div>
+      <div class="timeline-content">
+        <h3>Vyasa Vidyalaya</h3>
+        <span>June 2009 – April 2023</span>
+        <p>CS STUDENT</p>
+        <ul>
+          <li>Secured 80.8% in 12th Board Exam.</li>
+          <li>Secured 70% in 11th Board Exam.</li>
+          <li>Ensured responsiveness and code quality.</li>
+        </ul>
       </div>
     </div>
-  </section>
 
-  <!-- Skills Section -->
-  <section id="skills" data-aos="fade-left">
+    <!-- Entry 2 -->
+    <div class="timeline-item">
+      <div class="timeline-icon">
+        <img src="SEC-.png" alt="College Icon">
+      </div>
+      <div class="timeline-content">
+        <h3>Saveetha Engineering College</h3>
+        <span>September 2023 – June 2027</span>
+        <p>B.E - COMPUTER SCIENCE AND ENGINEERING (IoT)</p>
+        <ul>
+          <li>Created mobile apps using React Native.</li>
+          <li>Integrated APIs and worked with teams.</li>
+          <li>Maintained performance and UX quality.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+  <section id="skills" class="centered-section">
+  <div class="section-content-wrapper">
     <h2>Skills</h2>
     <div class="section-content">
       <ul>
@@ -305,84 +467,128 @@
         <li>Analytical skills</li>
       </ul>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Certificates Section -->
-  <section id="certificates" data-aos="zoom-in">
-    <h2>Certificates</h2>
-    <div class="section-content">
-      <ul>
-        <li>Internship On Introduction to Cyber Security - Issued by ArjunVision<br>
-          <div class="button-container">
-            <button onclick="downloadCertificate('intership.jpeg')">Click here to download Certificate</button>
-          </div>
-        </li>
-        <li>Software Engineering Job Simulation - Issued by JP Morgan Chase & Co<br>
-          <div class="button-container">
-            <button onclick="downloadCertificate('jp morgan.jpeg')">Click here to download Certificate</button>
-          </div>
-        </li>
-        <li>Introduction To Open Source - Issued by IBM<br>
-          <div class="button-container">
-            <button onclick="downloadCertificate('IBM.jpeg')">Click here to download Certificate</button>
-          </div>
-        </li>
-        <li>Web App Development - Issued by Saveetha Engineering College<br>
-          <div class="button-container">
-            <button onclick="downloadCertificate('Flask Bootcamp.jpeg')">Click here to download Certificate</button>
-          </div>
-        </li>
-        <li>Data Analytics - Issued by LinkedIn Learning<br>
-          <div class="button-container">
-            <button onclick="downloadCertificate('data analytics.jpeg')">Click here to download Certificate</button>
-          </div>
-        </li>
-      </ul>
+
+  <section id="certificates">
+  <h2>Certificates</h2>
+  <div class="section-content">
+    <ul>
+      <li>
+        Internship On Introduction to Cyber Security - Issued by ArjunVision<br>
+        <div class="button-container">
+          <button onclick="downloadCertificate('intership.jpeg')">Click here to download Certificate</button>
+        </div>
+      </li>
+
+      <li>
+        Software Engineering Job Simulation - Issued by JP Morgan Chase & Co<br>
+        <div class="button-container">
+          <button onclick="downloadCertificate('jp morgan.jpeg')">Click here to download Certificate</button>
+        </div>
+      </li>
+
+      <li>
+        Introduction To Open Source - Issued by IBM<br>
+        <div class="button-container">
+          <button onclick="downloadCertificate('IBM.jpeg')">Click here to download Certificate</button>
+        </div>
+      </li>
+
+      <li>
+        Web App Development - Issued by Saveetha Engineering College<br>
+        <div class="button-container">
+          <button onclick="downloadCertificate('Flask Bootcamp.jpeg')">Click here to download Certificate</button>
+        </div>
+      </li>
+
+      <li>
+        Data Analytics - Issued by LinkedIn Learning<br>
+        <div class="button-container">
+          <button onclick="downloadCertificate('data analytics.jpeg')">Click here to download Certificate</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+  <section id="contact" class="centered-section">
+    <div class="section-content-wrapper">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:rajaramanvenkatesh777@gmail.com" style="color:#e23636;">rajaramanvenkatesh777@gmail.com</a></p>
+      <p>Connect with me:</p>
+      <div class="social-icons">
+        <a href="https://x.com/_RajaRaman_" target="_blank"><img src="twit.png" class="social-icon" /></a>
+        <a href="https://github.com/Rajaraman-V" target="_blank"><img src="git.png" class="social-icon" /></a>
+        <a href="https://www.instagram.com/_.r_a_j_a_r_a_m_a_n._" target="_blank"><img src="ins.jpg" class="social-icon" /></a>
+        <a href="https://www.linkedin.com/in/raja-raman-a6870b2b2" target="_blank"><img src="link.png" class="social-icon" /></a>
+      </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer data-aos="fade-up">
-    <p>Contact me at: <a href="mailto:rajaramanvenktesh777@gmail.com">rajaramanvenktesh777@gmail.com</a></p>
-    <div id="contact">
-  <h2>Contact</h2>
-  <p>Connect with me:</p>
-  <div class="social-icons">
-    <a href="https://x.com/_RajaRaman_?t=pLPtIWcaVwx4MzjoJdpuNg&s=08 " target="_blank">
-  <img src="twit.png" alt="Twitter" class="social-icon" />
-</a>
-<a href="https://github.com/Rajaraman-V" target="_blank">
-  <img src="git.png" alt="GitHub" class="social-icon" />
-</a>
-<a href="https://www.instagram.com/_.r_a_j_a_r_a_m_a_n._?igsh=N2psdnQ0ZXYxMmZu" target="_blank">
-  <img src="ins.jpg" alt="Instagram" class="social-icon" />
-</a>
-<a href="https://www.linkedin.com/in/raja-raman-a6870b2b2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
-  <img src="link.png" alt="LinkedIn" class="social-icon" />
-</a>
-
-  </div>
-</div>
-
-  </footer>
-
-  <!-- AOS JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script>
-    AOS.init({
-      duration: 1000,
-      easing: 'ease-in-out',
-      once: true
+<script>
+  function showSection(id) {
+    document.querySelectorAll("section").forEach((section) => {
+      section.classList.remove("active");
     });
 
-    function downloadCertificate(fileName) {
-      const a = document.createElement('a');
-      a.href = fileName;
-      a.download = fileName.split('/').pop();
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
+    document.getElementById("hero-container").style.display = "none";
+    document.getElementById("hero-header").style.display = "none";
+    document.getElementById("robot-wrapper").style.display = "none";
+
+    document.getElementById(id).classList.add("active");
+  }
+
+  function showHero() {
+    document.querySelectorAll("section").forEach((section) => {
+      section.classList.remove("active");
+    });
+
+    document.getElementById("hero-container").style.display = "flex";
+    document.getElementById("hero-header").style.display = "block";
+    document.getElementById("robot-wrapper").style.display = "none";
+  }
+
+  function showRobotView() {
+    document.querySelectorAll("section").forEach((section) => {
+      section.classList.remove("active");
+    });
+
+    document.getElementById("hero-container").style.display = "flex";
+    document.getElementById("hero-header").style.display = "none";
+    document.getElementById("robot-wrapper").style.display = "block";
+
+    // Reset and type the welcome message again
+    const sentence = "Hello everyone! Welcome to my portfolio website. Click my photo to view my profile, and use the sidebar on the left to know more about me.";
+    const target = document.querySelector('.typewriter-text');
+    target.textContent = "";
+    let i = 0;
+
+    function type() {
+      if (i < sentence.length) {
+        target.textContent += sentence.charAt(i);
+        i++;
+        setTimeout(type, 60);
+      }
     }
-  </script>
+
+    type();
+  }
+
+  // On page load → show robot view
+  window.onload = showRobotView;
+
+  // On DOM ready → assign robot view to home button click
+  document.addEventListener("DOMContentLoaded", () => {
+    const robotBtn = document.getElementById("robot-btn");
+    if (robotBtn) {
+      robotBtn.addEventListener("click", showRobotView);
+    }
+  });
+</script>
+
+
+
 </body>
 </html>
